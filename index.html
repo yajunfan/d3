@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/kl_struc.min.css"  type="text/css">
+    <link rel="stylesheet" href="css/mark.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.1.min.js" ></script>
+    <script type="text/javascript" charset="utf-8" src="js/angular.js" ></script>
+    <script type="text/javascript" charset="utf-8" src="js/d3.v3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/strucMap.min3.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/mark.js" ></script>
+    <script type="text/javascript" charset="utf-8" src="js/drag2.js" ></script>
+
+</head>
+<body>
+<div class="mainCol clearfix padding15px addcolor"  ng-controller="myCtrl">
+    <div class="containerwrap setborder whitebk">
+        <div class="kn_others">
+            <div id="kl_screen" class="kn_content">
+                <div id="mapRow" class="kl_str">
+                    <svg id="map" width="1140" height="940" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 145 145"  version="1.1" viewBox="0 0 1140 940"  xml:space="preserve"></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info" id="info">
+        <h4>{{peroProps.name}}的详细信息</h4>
+        <div  class="closeInfo" id="closeInfo" ng-click="infoClose()"></div>
+        <ul>
+            <li>姓名：<span ng-bind="peroProps.name"></span></li>
+            <li>性别：<span ng-bind="peroProps.nTxt"></span></li>
+            <li>职业：<span ng-bind="personInfos.id"></span></li>
+            <li>业务：<span ng-bind="peroProps.nTxt"></span></li>
+            <li>电话：<span ng-bind="peroProps.course"></span></li>
+            <li>还款情况：<span ng-bind="peroProps.nTxt"></span></li>
+        </ul>
+        <img src='{{peroProps.img}}' alt={{peroProps.name}}>
+    </div>
+    <div class="content" id="content">
+        <div class="base" id="base" >
+        <div id="bgDiv" ></div>
+        <div class="upMark"></div>
+        <div id="mark" class="mark"></div>
+    </div>
+        <div id="ViewDiv"></div>
+        <input type="text" ng-model="perIndex" style="display: none" id="perIndex">
+    </div>
+    <div class="toolArea" id="toolArea">
+        <input type="button" value="选区工具" ng-click="picDisplay1()">
+        <input type="button" value="取消选区" ng-click="picDisplay2()" style="left:100px;">
+        <input type="button" value="信息窗口显示" ng-click="open()">
+    </div>
+</div>
+<script>
+    //信息窗口的拖动
+   $.Move("info");
+</script>
+</body>
+</html>
